@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html lang="ko"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="~{layout/default.html}" >
+
+<th:block layout:fragment="content">
+    <link href="css/layout.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+
+    <div style="width:50%;text-align: center;" class="container">
+
+        <div style="margin-top:150px; vertical-align: middle; text-align: center;" class="title">
+            <h2 style="vertical-align: middle; text-align: center;">비밀번호 찾기 _ 변경</h2>
+        </div>
+
+
+
+
+            <div style="margin-top:120px;" class="at-com-2">
+
+                <div class="at-box">
+                    <div class="at-box-s-ipts" style="padding:30px 20px;">
+
+                        <p>새로 사용하실 비밀번호를 입력해주십시오</p>
+                        <!-- <p>영문대문자,영문소문자,숫자,특수문자 중 2종류 이상을 조합하여 최소 8자리 이상 등록 가능합니다.</p> -->
+
+
+
+                        <input type="hidden" name="ERROR_CODE" value="${ error_code }"/>
+                        <div class="register_require"><img src="images/inquiry/bul_require.png" width="6" height="6" alt="필수" class="bul_require"> 필수입력 사항</div>
+
+                        <table class="tbl_register tbl_fixed"  >
+                            <caption>휴대폰 인증</caption>
+                            <colgroup>
+                                <col style="width:200px;">
+                                <col style="">
+                            </colgroup>
+                            <tbody>
+
+
+                            <tr>
+                                <th scope="row">새 비밀번호 <img src="images/inquiry/bul_require.png" width="6" height="6" alt="필수" class="bul_require" style="margin-left:2px;"></th>
+                                <td>
+                                    <input type="password" class="ipt_full" name="new_usr_pw" id="new_usr_pw" title="비밀번호" maxlength="100" style="width:250px;" placeholder="변경할 비밀번호를 입력해주세요.">
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">새 비밀번호 확인 <img src="images/inquiry/bul_require.png" width="6" height="6" alt="필수" class="bul_require" style="margin-left:2px;"></th>
+                                <td>
+                                    <input type="password" class="ipt_full" name="new_usr_pw_confirm" id="new_usr_pw_confirm" title="비밀번호 확인" maxlength="100" style="width:250px;" placeholder="비밀번호를 다시 입력해주세요.">
+                                </td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn_box mb30">
+                <button type="submit" id="btn-confirm" name="btnConfirm" class="btnL btnRed" onclick="submit_pw();" style="width:160px;"><span>비밀번호 변경</span></button>
+                <a href="/main"  id="btnCancel" class="btnL btnDgray" ><span>취소</span></a>
+            </div>
+
+
+
+
+    </div>
+    <script>
+        function submit_pw() {
+
+            var $pwd = $("#new_usr_pw");
+            var $newPwd = $("#new_usr_pw_confirm");
+
+            if (!$pwd.val()) {
+                alert("변경 할 비밀번호를 입력해주세요.");
+               /* toast("error","변경 할 비밀번호를 입력해주세요.");*/
+                $pwd.focus();
+                return false;
+            } else if (!$newPwd.val()) {
+                alert("비밀번호를 다시 입력해주세요.");
+                $newPwd.focus();
+                return false;
+            } else {
+                location.href="login";
+            }
+        }
+
+    </script>
+
+
+</th:block>
+

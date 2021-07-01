@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="ko"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="~{layout/default.html}" >
+
+<th:block layout:fragment="content">
+    <link href="css/layout.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+
+    <div style="width:60%;" class="container">
+        <div style="margin-top: 150px; text-align: center;" class="title">
+            <h2>회원가입</h2>
+        </div>
+
+
+
+
+        <div style="margin-top: 100px;" class="text-c">
+            <p style="font-weight: bold;font-size:medium;" class="main-alert">지금 가입해서 편리한 이동 서비스를 경험해보세요. </p>
+        </div>
+
+
+
+
+    </div>
+    <div class="reg-agreement">
+
+
+
+        <div style="margin-bottom: 100px;" class="reg-buttons">
+            <a href="/register_prev" class="btnL btnBlue" id="btn-confirm">일반승객</a>
+            <a href="register_driver" class="btnL btnBlack" id="btn-cancel">택시기사</a>
+        </div>
+
+
+    </div>
+</th:block>
+

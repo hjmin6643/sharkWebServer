@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html lang="ko"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="~{layout/default.html}" >
+
+<th:block layout:fragment="content">
+    <link href="css/layout.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+
+    <div style="width:50%;text-align: center;" class="container">
+        <div style="margin-top: 150px;" class="title">
+            <h2 style="margin-top:150px;">회원 정보 수정</h2>
+        </div>
+
+
+        <div style="margin-top:50px;" class="stepBox_min regBox">
+            <ol class="stepCol777">
+                <li class=""><a style="color:#a5a5a5" href="/change_password"><span><em>비밀번호 변경</em></span></a></li>
+                <li class="on"><a href="phone_change"><span><em>휴대폰 번호 변경</em></span></a></li>
+                <li class=""><a style="color:#a5a5a5" href="/info_change"><span><em>기사 정보 변경</em></span></a></li>
+            </ol>
+        </div>
+
+
+        <form name="frmModify" action="" method="POST">
+
+
+            <div style="margin-top:150px;" class="at-com-1">
+
+                <div class="at-box">
+                    <div class="at-box-s-ipts" style="padding:30px 20px;">
+
+                        <p>변경 할 핸드폰 번호를 입력 후 본인인증을 해주세요.</p>
+                        <!-- <p>영문대문자,영문소문자,숫자,특수문자 중 2종류 이상을 조합하여 최소 8자리 이상 등록 가능합니다.</p> -->
+
+
+
+                        <input type="hidden" name="ERROR_CODE" value="${ error_code }"/>
+
+                        <div class="register_require"><img src="images/inquiry/bul_require.png" width="6" height="6" alt="필수" class="bul_require"> 필수입력 사항</div>
+                        <table class="tbl_register tbl_fixed" >
+                            <caption>휴대폰 인증</caption>
+                            <colgroup>
+                                <col style="width:200px;">
+                                <col style="">
+                            </colgroup>
+                            <tbody>
+
+                            <tr>
+                                <th scope="row">휴대폰 번호<img src="images/inquiry/bul_require.png" width="6" height="6" alt="필수" class="bul_require" style="margin-left:3px;"></th>
+                                <td>
+                                    <div class="selectBox" style="width: 90px; z-index: 100;">
+                                        <select title="연락처 앞 번호" name="tel1" id="tel1" style="width: 90px; margin-left: -30px; margin-top: -18px;">
+                                            <option value="010">010</option>
+                                            <option value="011">011</option>
+                                            <option value="016">016</option>
+                                            <option value="017">017</option>
+                                            <option value="018">018</option>
+                                            <option value="019">019</option>
+                                        </select>
+                                    </div>
+                                    <span class="hypen">-</span>
+                                    <input type="text" class="ipt_normal" name="tel2" id="tel2" title="연락처 중간 번호" maxlength="4" value="">
+                                    <span class="hypen">-</span>
+                                    <input type="text" class="ipt_normal" name="tel3" id="tel3" title="연락처 뒷 번호" maxlength="4" value="">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">핸드폰 인증하기 <img src="images/inquiry/bul_require.png" width="6" height="6" alt="필수" class="bul_require" style="margin-left:2px;"></th>
+                                <td>
+                                    <a href="#" class="btnL btnWhite" id="btn-authentication">핸드폰 인증하기</a>
+
+                                </td>
+                            </tr>
+
+
+
+                            </tbody>
+                        </table>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn_box mb30">
+                <button type="submit" id="btn-confirm" name="btnConfirm" class="btnL btnRed" style="width:140px;"><span>변경 사항 저장</span></button>
+                <a href="/main"  id="btnCancel" class="btnL btnDgray" ><span>취소</span></a>
+            </div>
+
+
+
+        </form>
+    </div>
+
+</th:block>
+

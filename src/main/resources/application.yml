@@ -1,0 +1,54 @@
+server:
+  port: 9097
+  servlet:
+    session:
+      timeout: 60m
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  error:
+    include-exception: false
+    include-stacktrace: never
+    whitelabel.enabled: false
+
+
+spring:
+  profiles:
+    active: prod
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://192.168.0.95:3306/sharktaxi
+    username: sharktaxi
+    password: nex147200
+    dbcp2:
+      test-on-borrow: true
+      validation-query: select 1
+  devtools:
+    livereload:
+      enabled: true
+  thymeleaf:
+    mode: HTML
+    enabled: true
+    encoding: UTF-8
+    cache: false
+
+
+logging:
+  config:
+
+--- #local
+spring:
+  profiles: local
+  datasource:
+    url: jdbc:mariadb://192.168.0.95:3306/sharktaxi
+  thymeleaf:
+    cache: false
+
+--- #prod
+spring:
+  profiles: prod
+  datasource:
+    url: jdbc:mariadb://192.168.0.95:3306/sharktaxi
+  thymeleaf:
+    cache: true

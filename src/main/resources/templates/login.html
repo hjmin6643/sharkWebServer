@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="~{layout/default.html}" >
+
+<th:block layout:fragment="content">
+    <link href="css/layout.css" rel="stylesheet">
+<div id="login-content">
+    <div class="container">
+
+        <div style="vertical-align: center;" id="login-form-wrap" >
+            <div class="lf-header">LOGIN</div>
+            <div class="lf-login">로그인 후 이용해주세요.</div>
+
+            <form action="" method="POST">
+
+                <input type="hidden" name="ERROR_CODE" value=""/>
+                <input type="hidden" name="TOKEN" value=""/>
+
+
+                <fieldset>
+
+                    <input type="text" title="아이디" id="OUSR_ID" name="OUSR_ID" style="-ms-ime-mode: disabled;" maxlength="35" class="inp-login" value="" autocomplete="off" placeholder="아이디"/>
+
+                    <input type="password" title="비밀번호" id="OUSR_PW" name="OUSR_PW" style="-ms-ime-mode: disabled;" maxlength="35" class="inp-login" value="" autocomplete="off" placeholder="비밀번호"/>
+
+                    <button type="button" class="btn_login">로그인</button>
+
+                </fieldset>
+
+                <div class="btn_member">
+                    <a href="/find_id" class="srch_id" style="margin-left:30px;">아이디 찾기</a>
+                    <a href="/find_pw" class="srch_pw"style="margin-left:15px;">비밀번호 찾기</a>
+                    <a href="/register_normal" style="margin-left:15px;" type="button"  class="btn pull-right btn_join">회원가입</a>
+                    <br class="clearboth"/>
+                </div>
+
+
+            </form>
+
+        </div>
+
+    </div>
+</div>
+
+</th:block>
+

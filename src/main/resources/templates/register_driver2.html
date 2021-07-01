@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html lang="ko"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="~{layout/default.html}" >
+
+<th:block layout:fragment="content">
+    <link href="css/layout.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+
+    <div style="width:60%;" class="container">
+        <div class="title">
+            <h2>회원가입</h2>
+        </div>
+
+
+        <div class="stepBox regBox">
+            <ol class="stepCol3">
+                <li class=""><span><strong style="margin-left:50px;">STEP. 01</strong><em>이용약관 동의</em></span></li>
+                <li class=""><span><strong>STEP. 02</strong><em>본인인증</em></span></li>
+                <li class="on"><span><strong>STEP. 03</strong><em>정보 입력</em></span></li>
+            </ol>
+        </div>
+
+        <form name="frmReg" action="/register" method="POST" >
+
+            <input type="hidden" name="error_code" id="error_code" value=""/>
+            <input type="hidden" name="id_check" id="id_check" value="0"/>
+            <input type="hidden" name="pw_check" id="pw_check" value="0"/>
+            <input type="hidden" name="mobile_phone" id="mobile_phone" value=""/>
+            <input type="hidden" name="email" id="email" value=""/>
+            <input type="hidden" name="recv_yn" id="recv_yn" value="N"/>
+
+            <div class="register_write" style="margin-top:50px;">
+
+                <div class="register_require"><img src="images/inquiry/bul_require.png" width="6" height="6" alt="필수" class="bul_require"> 필수입력 사항</div>
+                <!-- 06-27 summary 추가, caption 수정 : 시작 -->
+                <div class="tbl_register" summary="SHARK TAXI 회원가입">
+
+                    <div class="parent">
+                        <div class="child1" style="width:170px;" >이메일 <img src="images/inquiry/bul_require.png" width="6" height="6" alt="필수" class="bul_require"></div>
+                        <span class="child2" style="width: 900px;">
+                            <input type="text" class="ipt_normal" name="mailId" id="mailId" title="이메일 아이디" value="">
+                            <span class="hypen">@</span>
+                            <input type="text" class="ipt_normal" name="mailDomain" id="mailDomain" title="이메일 도메인" value="">
+                            <div class="selectBox email" style="width: 125px; margin-left: 3px; z-index: 100;">
+                                <select id="selectMail" name="selectMail" title="이메일 도메인 선택" onchange="changeMail();" style="display: initial; width: 125px; margin-top: -18px;">
+                                    <option value="">직접입력</option>
+                                    <option value="nate.com">nate.com</option>
+                                    <option value="naver.com">naver.com</option>
+                                    <option value="chol.com">chol.com</option>
+                                    <option value="dreamwiz.com">dreamwiz.com</option>
+                                    <option value="empal.com">empal.com</option>
+                                    <option value="freechal.com">freechal.com</option>
+                                    <option value="gmail.com">gmail.com</option>
+                                    <option value="hanafos.com">hanafos.com</option>
+                                    <option value="hanmail.net">hanmail.net</option>
+                                    <option value="hitel.net">hitel.net</option>
+                                    <option value="hotmail.com">hotmail.com</option>
+                                    <option value="korea.com">korea.com</option>
+                                    <option value="lycos.co.kr">lycos.co.kr</option>
+                                    <option value="netian.com">netian.com</option>
+                                    <option value="paran.com">paran.com</option>
+                                    <option value="yahoo.com">yahoo.com</option>
+                                    <option value="yahoo.co.kr">yahoo.co.kr</option>
+                                </select>
+                            </div>
+                        </span>
+                    </div>
+
+                    <div class="parent">
+                        <div class="child1" style="width:170px;">비밀번호 <img src="images/inquiry/bul_require.png" width="6" height="6" alt="필수" class="bul_require"></div>
+                        <span  class="child2" style="width: 900px;">
+                            <input type="password" class="ipt_full" name="usr_pw" id="usr_pw" title="비밀번호" maxlength="100" style="width:180px;">
+                            <span class="i-point">
+								영문대문자,영문소문자,숫자,특수문자 중 2종류 이상을 조합하여 최소 8자리 이상 등록 가능합니다.
+								</span>
+                        </span>
+                    </div>
+
+                    <div class="parent">
+                        <div class="child1" style="width:170px;" >비밀번호 확인 <img src="images/inquiry/bul_require.png" width="6" height="6" alt="필수" class="bul_require"></div>
+                        <span class="child2" style="width: 900px;">
+                            <input type="password" class="ipt_full" name="usr_pw_confirm" id="usr_pw_confirm" title="비밀번호 확인" maxlength="100" style="width:180px;">
+                        </span>
+                    </div>
+
+
+                    <div class="parent">
+                        <div class="child1" style="width:170px;">휴대폰 번호 <img src="images/inquiry/bul_require.png" width="6" height="6" alt="필수" class="bul_require"></div>
+                        <span class="child2" style="width: 900px;">
+                            <div class="selectBox" style="width: 120px; z-index: 100;">
+                                <select title="연락처 앞 번호" name="tel1" id="tel1" style="width: 120px; margin-left: -30px; margin-top: -18px;">
+                                    <option value="010">010</option>
+                                    <option value="011">011</option>
+                                    <option value="016">016</option>
+                                    <option value="017">017</option>
+                                    <option value="018">018</option>
+                                    <option value="019">019</option>
+                                </select>
+                            </div>
+                            <span class="hypen">-</span>
+                            <input type="text" class="ipt_normal" name="tel2" id="tel2" title="연락처 중간 번호" maxlength="4" value="">
+                            <span class="hypen">-</span>
+                            <input type="text" class="ipt_normal" name="tel3" id="tel3" title="연락처 뒷 번호" maxlength="4" value="">
+
+                        </span>
+                    </div>
+
+
+                    <div class="parent">
+                        <div class="child1" style="width:170px;" >소속 <img src="images/inquiry/bul_require.png" width="6" height="6" alt="필수" class="bul_require"></div>
+                        <span class="child2">
+						<input style="margin-right: 10px;" type="radio" id="notice_type1" name="notice_type" role="radio" value="U" checked="checked"/><label for="notice_type1">개인 택시</label>
+                        <input style="margin-left:10px; margin-right: 10px;" type="radio"	id="notice_type2" name="notice_type" role="radio" value="A"/><label for="notice_type2">법인 택시</label>
+						</span>
+                    </div>
+                    <div class="parent">
+                        <div class="child1" style="width:170px;" >상호 <img src="images/inquiry/bul_require.png" width="6" height="6" alt="필수" class="bul_require"></div>
+                        <span class="child2" style="width: 900px;">
+                            <input type="text" class="ipt_jumbo" name="usr_nm" id="usr_nm" title="상호" maxlength="40" value="">
+                        </span>
+                    </div>
+
+
+                    <div class="parent">
+                        <div class="child1" style="width:170px;">사업자 번호 <img src="images/inquiry/bul_require.png" width="6" height="6" alt="필수" class="bul_require"></div>
+                        <span  class="child2" style="width: 900px;">
+                            <input type="text" class="ipt_full" name="usr_id" id="usr_id" title="사업자 번호" maxlength="100" style="width:180px;" value="">
+
+                        </span>
+                    </div>
+
+                    <div class="parent">
+                        <div class="child1" style="width:170px;">차량번호 <img src="images/inquiry/bul_require.png" width="6" height="6" alt="필수" class="bul_require"></div>
+                        <span  class="child2" style="width: 900px;">
+                            <input type="text" class="ipt_full" name="usr_pw" id="usr_pw" title="차량번호" maxlength="100" style="width:180px;">
+
+                        </span>
+                    </div>
+
+                    <div class="parent">
+                        <div class="child1" style="width:170px;display:inline-block;">사진 등록 <img src="images/inquiry/bul_require.png" width="6" height="6" alt="필수" class="bul_require">
+                            <span style="display:inline-block; font-size:small; font-weight:lighter; ">승객의 화면에 표시되는 사진 입니다.</span>
+                        </div>
+
+                        <span class="child2" style="width: 800px;">
+                            <img style="width: 80px; height:80px;" src="images/info/taxi-driver.png" alt="필수" class="">
+                            <input type="file" />
+                        </span>
+                    </div>
+
+
+
+
+                </div>
+
+
+                <div class="reg-buttons">
+                    <a href="/register_complete" class="btnL btnBlue" id="btn-confirm">확인</a>
+                    <a href="/register_authentication" class="btnL btnBlack" id="btn-cancel">이전</a>
+                </div>
+
+
+            </div>
+        </form>
+
+    </div>
+
+    <script type="text/javascript">
+
+
+
+        var changeMail = function(){
+
+            var mail = $("#selectMail").val();
+            if ('' != mail) {
+                $("#mailDomain").val(mail).prop('disabled', true);
+            } else {
+                $("#mailDomain").val(mail).prop('disabled', null);
+            }
+            $("#usr_email").val(mail);
+        };
+
+        /*$(document).ready(function(){
+
+            $.SelectBoxSet('.selectBox > select', {height:200, scrollHeight:200-8});
+        });*/
+    </script>
+</th:block>

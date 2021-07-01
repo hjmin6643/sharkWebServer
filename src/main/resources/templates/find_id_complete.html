@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="ko"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="~{layout/default.html}" >
+
+<th:block layout:fragment="content">
+    <link href="css/layout.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+
+    <div style="width:60%;" class="container">
+        <div style="margin-top:150px; vertical-align: middle; text-align: center;" class="title">
+            <h2 style="vertical-align: middle; text-align: center;">아이디 찾기</h2>
+        </div>
+
+
+
+
+
+        <div style="margin-top: 100px;" class="text-c">
+            <h3 style="margin-top: 30px; font-weight: bold;" class="main-alert"> 가입하신 아이디는 <br></h3>
+            <h3 style="margin-top: 10px; font-weight: bold; color:red;"> user@naver.com </h3> <h3 style="margin-top: 10px;font-weight: bold;">입니다.</h3>
+        </div>
+
+
+
+
+    </div>
+    <div class="reg-agreement">
+
+
+
+        <div class="reg-buttons">
+            <a href="/login" class="btnL btnBlue" id="btn-confirm">로그인</a>
+        </div>
+
+
+    </div>
+
+</th:block>
+

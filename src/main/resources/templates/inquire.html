@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="ko"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="~{layout/default.html}" >
+
+<th:block layout:fragment="content">
+    <link href="css/layout.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+
+    <div style="width:60%;" class="container">
+        <div style="margin-top: 150px;" class="title">
+            <h1>1:1문의</h1>
+            <div class="title-desc">문의사항을 남겨주시면 친절하게 답변 드립니다.</div>
+        </div>
+
+        <div class="register_write">
+
+            <div class="register_require"><img src="images/inquiry/bul_require.png" width="6" height="6" alt="필수" class="bul_require"> 필수입력 사항</div>
+            <!-- 06-27 summary 추가, caption 수정 : 시작 -->
+            <table class="tbl_register tbl_fixed" summary="문의하기(입력) - 문의유형, 제목, 문의내용, 이름(또는 회사명), 연락처, 이메일로 구성">
+                <caption>문의하기(입력)</caption>
+                <!-- //06-27 summary 추가, caption 수정 : 끝 -->
+                <colgroup>
+                    <!-- 06-20 tbl_fixed 값이 들어가면서 width 값 변경 : 시작 -->
+                    <col style="width:170px;">
+                    <col style="width:920px;">
+                    <!-- //06-20 tbl_fixed 값이 들어가면서 width 값 변경 : 끝 -->
+                </colgroup>
+                <tbody>
+
+                <tr>
+                    <th scope="row">제목 <img src="images/inquiry/bul_require.png" width="6" height="6" alt="필수" class="bul_require"></th>
+                    <td>
+                        <input type="text" class="ipt_full" name="subject" id="subject" title="제목" maxlength="100">
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">문의내용 <img src="images/inquiry/bul_require.png" width="6" height="6" alt="필수" class="bul_require"></th>
+                    <td>
+                        <div class="register_textarea">
+                            <textarea name="inq_content" id="inq_content" title="내용입력" style="height: 350px;" rows="5" cols="50"></textarea>
+                            <div class="byte">
+                                <span class="byte_txt">문의 내용은 한글 500자, 영문 1,000자까지 입력하실 수 있습니다.</span>
+                                <span class="byte_num"><strong><span id="cnt" name="cnt">0</span></strong> / 1,000 Byte</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="btn_box mb30">
+            <button type="submit" id="btnAdd" name="btnAdd" class="btnL btnRed" style="width:140px;"><span>문의하기</span></button>
+        </div>
+
+
+    </div>
+
+
+
+
+</th:block>
+

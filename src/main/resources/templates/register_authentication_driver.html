@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="ko"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="~{layout/default.html}" >
+
+<th:block layout:fragment="content">
+    <link href="css/layout.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+
+    <div style="width:60%;" class="container">
+        <div class="title">
+            <h2>회원가입</h2>
+        </div>
+
+
+        <div class="stepBox regBox">
+            <ol class="stepCol3">
+                <li class=""><span><strong style="margin-left:50px;">STEP. 01</strong><em>이용약관 동의</em></span></li>
+                <li class="on"><span><strong>STEP. 02</strong><em>본인인증</em></span></li>
+                <li class=""><span><strong>STEP. 03</strong><em>정보 입력</em></span></li>
+            </ol>
+        </div>
+
+
+
+        <div style="margin-top: 150px;" class="text-c">
+            <p style="font-weight: bold;" class="main-alert"> [핸드폰 인증하기]를 클릭하여 본인 인증을 해주세요.</p>
+        </div>
+
+
+        <div style="margin-top: 100px; margin-bottom: 100px;" class="btn-tools text-c">
+            <a href="#" class="btnL btnWhite" id="btn-authentication">핸드폰 인증하기</a>
+        </div>
+
+    </div>
+    <div class="reg-agreement">
+
+
+
+        <div class="reg-buttons">
+            <a href="/register_driver2" class="btnL btnBlue" id="btn-confirm">다음</a>
+            <a href="/register_prev" class="btnL btnBlack" id="btn-cancel">이전</a>
+        </div>
+
+
+    </div>
+
+</th:block>
+

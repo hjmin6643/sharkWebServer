@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html lang="ko"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="~{layout/default.html}" >
+
+<th:block layout:fragment="content">
+    <link href="css/layout.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+
+    <div style="width:60%;" class="container">
+        <div class="title">
+            <h2>회원가입 완료</h2>
+        </div>
+        <div class="i-info-box">
+
+            <div class="text-c">
+
+            </div>
+
+            <div class="text-c">
+                <p class="main-alert">회원가입 완료</p>
+                <p>회원가입이 완료되었습니다.</p>
+            </div>
+
+            <div class="btn-tools text-c">
+                <a href="/main" class="btnL btnRed">메인화면으로</a>
+            </div>
+
+        </div>
+
+
+
+    </div>
+</th:block>
+

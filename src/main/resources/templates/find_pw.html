@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="ko"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="~{layout/default.html}" >
+
+<th:block layout:fragment="content">
+    <link href="css/layout.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+
+    <div style="width:60%;" class="container">
+        <div style="margin-top:150px; vertical-align: middle; text-align: center;" class="title">
+            <h2 style="vertical-align: middle; text-align: center;">비밀번호 찾기</h2>
+        </div>
+
+
+
+
+
+        <div style="margin-top: 100px;" class="text-c">
+            <p style="font-weight: bold;" class="main-alert"> [핸드폰 인증하기]를 클릭하여 본인 인증을 해주세요.</p>
+        </div>
+
+
+        <div style="margin-top: 100px; margin-bottom: 100px;" class="btn-tools text-c">
+            <a href="#" class="btnL btnWhite" id="btn-authentication">핸드폰 인증하기</a>
+        </div>
+
+    </div>
+    <div class="reg-agreement">
+
+
+
+        <div class="reg-buttons">
+            <a href="/find_pw_complete" class="btnL btnBlue" id="btn-confirm">다음</a>
+        </div>
+
+
+    </div>
+
+</th:block>
+

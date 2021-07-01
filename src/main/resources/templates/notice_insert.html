@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html lang="ko"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="~{layout/default.html}" >
+
+<th:block layout:fragment="content">
+    <link href="css/layout.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+
+    <div style="width:60%;" class="container">
+        <div style="margin-top: 150px;" class="title">
+            <h1>공지사항</h1>
+            <div class="title-desc">SHARK TAXI 소식을 알려드립니다</div>
+        </div>
+
+        <form name="notice-form" action=""  method="POST">
+            <input type="hidden" id="popup_yn" name="popup_yn" value="N">
+            <input type="hidden" id="noti_type" name="noti_type" value="U">
+
+            <table class="tbl_register tbl_fixed" summary="공지사항(입력) - 제목, 공지구분, 내용, 팝업, 팝업기간">
+                <caption>공지사항(입력)</caption>
+                <colgroup>
+                    <col style="width:170px;">
+                    <col style="width:920px;">
+                </colgroup>
+                <tbody>
+                <tr>
+                    <th>제목</th>
+                    <td><input type="text" id="subject" name="subject" placeholder="제목을 입력하세요" style="width: 700px;"></td>
+                </tr>
+                <tr style="display:none;">
+                    <th>공지구분</th>
+                    <td>
+						<span class="radio">
+						<input type="radio" id="notice_type1" name="notice_type" role="radio" value="U" checked="checked"/><label for="notice_type1">사용자</label>
+						</span>
+                        <span class="radio">
+						<input type="radio"	id="notice_type2" name="notice_type" role="radio" value="A"/><label for="notice_type2">관리자</label>
+						</span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>내용</th>
+                    <td >
+                        <textarea name="content" id="content1" style="width: 100%; height: 300px;"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>팝업</th>
+                    <td>
+						<span class="checkbox">
+						<input type="checkbox" id="popup_yn1" name="chk_popup_yn"><label for="popup_yn1">팝업설정</label>
+						</span>
+                        <br><br>
+                        * 팝업으로 설정 시 사용자사이트 메인페이지에 팝업창으로 설정됩니다.<br>
+                        * 팝업으로 설정 시 사용자사이트 > 고객지원 > 공지사항리스트에서 상단에 고정으로 표시됩니다.</td>
+                </tr>
+                <tr style="display: none;" id="date-tr">
+                    <th>팝업기간</th>
+                    <td>
+                        <div class="calendar">
+                            <input type="text" title="시작일" value="${start_date}" readonly style="width: 93px" name="exp_st_date"  data-start="${ start_date }" data-end="${end_date }" />
+                            <button type="button" class="calBtn">날짜선택</button>
+                            <div class="calBox" style="display: none; z-index: 100">
+                                <div class="calTop">
+                                    <button type="button" class="first">첫 달</button>
+                                    <button type="button" class="prev">이전 달</button>
+                                    <p>
+                                        <span class="year">2017</span><span class="month">1</span>
+                                        <span class="hidden">월</span>
+                                    </p>
+                                    <button type="button" class="next">다음 달</button>
+                                    <button type="button" class="end">마지막 달</button>
+                                </div>
+                                <div class="btn clearfix">
+                                    <button type="button" class="today"><span>오늘</span>	</button>
+                                    <button type="button" class="close"><span>닫기</span>	</button>
+                                </div>
+                            </div>
+                        </div>
+                        <span>~</span>
+                        <div class="calendar">
+                            <input type="text" title="종료일" value="${end_date }" readonly style="width: 93px" name="exp_end_date"  data-end="${ end_date }"/>
+                            <button type="button" class="calBtn">날짜선택</button>
+                            <div class="calBox" style="display: none; z-index: 100">
+                                <div class="calTop">
+                                    <button type="button" class="first">첫 달</button>
+                                    <button type="button" class="prev">이전 달</button>
+                                    <p>
+                                        <span class="year">2016</span><span class="month">1</span><span class="hidden">월</span>
+                                    </p>
+                                    <button type="button" class="next">다음 달</button>
+                                    <button type="button" class="end">마지막 달</button>
+                                </div>
+                                <div class="btn clearfix">
+                                    <button type="button" class="today"><span>오늘</span>	</button>
+                                    <button type="button" class="close"><span>닫기</span>	</button>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+        <div class="mt30 mb30 text-c">
+            <a href="#" class="btnL btnRed" id="btn-submit">저장</a>
+            <a href="/notice_list" class="btnL btnDgray" id="btn-init" style="width:150px;">취소</a>
+        </div>
+
+
+    </div>
+</th:block>
+

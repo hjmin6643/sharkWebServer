@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html lang="ko"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="~{layout/default.html}" >
+
+<th:block layout:fragment="content">
+    <link href="css/layout.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+
+    <div style="width:50%;text-align: center;" class="container">
+        <div style="margin-top: 150px;" class="title">
+            <h2 style="margin-top:150px;">회원 정보 수정</h2>
+        </div>
+
+
+        <div style="margin-top:50px;" class="stepBox_min regBox">
+            <ol class="stepCol777">
+                <li class=""><a style="color:#a5a5a5" href="/change_password"><span><em>비밀번호 변경</em></span></a></li>
+                <li class=""><a style="color:#a5a5a5" href="phone_change"><span><em>휴대폰 번호 변경</em></span></a></li>
+                <li class="on"><a href="/info_change"><span><em>기사 정보 변경</em></span></a></li>
+            </ol>
+        </div>
+
+
+
+        <form name="frmReg" action="#" method="POST" >
+
+            <input type="hidden" name="error_code" id="error_code" value=""/>
+            <input type="hidden" name="id_check" id="id_check" value="0"/>
+            <input type="hidden" name="pw_check" id="pw_check" value="0"/>
+            <input type="hidden" name="mobile_phone" id="mobile_phone" value=""/>
+            <input type="hidden" name="email" id="email" value=""/>
+            <input type="hidden" name="recv_yn" id="recv_yn" value="N"/>
+
+            <div class="register_write" style="margin-top:150px;">
+
+                <div class="register_require"><img src="images/inquiry/bul_require.png" width="6" height="6" alt="필수" class="bul_require"> 필수입력 사항</div>
+                <!-- 06-27 summary 추가, caption 수정 : 시작 -->
+                <div class="tbl_register">
+
+                    <div class="parent">
+                        <div class="child1" style="width:170px;" >소속 <img src="images/inquiry/bul_require.png" width="6" height="6" alt="필수" class="bul_require"></div>
+                        <span class="child2">
+						<input style="margin-right: 10px;" type="radio" id="notice_type1" name="notice_type" role="radio" value="U" checked="checked"/><label for="notice_type1">개인 택시</label>
+                        <input style="margin-left:10px; margin-right: 10px;" type="radio"	id="notice_type2" name="notice_type" role="radio" value="A"/><label for="notice_type2">법인 택시</label>
+						</span>
+                    </div>
+                    <div class="parent">
+                        <div class="child1" style="width:170px;" >상호 <img src="images/inquiry/bul_require.png" width="6" height="6" alt="필수" class="bul_require"></div>
+                        <span class="child2" style="width: 900px;">
+                            <input type="text" class="ipt_jumbo" name="usr_nm" id="usr_nm" title="상호" maxlength="40" value="">
+                        </span>
+                    </div>
+
+
+                    <div class="parent">
+                        <div class="child1" style="width:170px;">사업자 번호 <img src="images/inquiry/bul_require.png" width="6" height="6" alt="필수" class="bul_require"></div>
+                        <span  class="child2" style="width: 900px;">
+                            <input type="text" class="ipt_full" name="usr_id" id="usr_id" title="사업자 번호" maxlength="100" style="width:180px;" value="">
+
+                        </span>
+                    </div>
+
+                    <div class="parent">
+                        <div class="child1" style="width:170px;">차량번호 <img src="images/inquiry/bul_require.png" width="6" height="6" alt="필수" class="bul_require"></div>
+                        <span  class="child2" style="width: 900px;">
+                            <input type="text" class="ipt_full" name="usr_pw" id="usr_pw" title="차량번호" maxlength="100" style="width:180px;">
+
+                        </span>
+                    </div>
+
+                    <div class="parent">
+                        <div class="child1" style="width:170px;display:inline-block;">사진 등록 <img src="images/inquiry/bul_require.png" width="6" height="6" alt="필수" class="bul_require">
+                            <span style="display:inline-block; font-size:small; font-weight:lighter; ">승객의 화면에 표시되는 사진 입니다.</span>
+                        </div>
+
+                        <span class="child2" style="width: 800px;">
+                            <img style="width: 80px; height:80px;" src="images/info/taxi-driver.png" alt="필수" class="">
+                            <input type="file" />
+                        </span>
+                    </div>
+
+
+
+
+
+                </div>
+
+
+                <div class="reg-buttons">
+                    <a href="#" class="btnL btnRed" id="btn-confirm">변경 사항 저장</a>
+                    <a href="/main" class="btnL btnBlack" id="btn-cancel">취소</a>
+                </div>
+
+
+            </div>
+        </form>
+
+    </div>
+
+
+</th:block>
+

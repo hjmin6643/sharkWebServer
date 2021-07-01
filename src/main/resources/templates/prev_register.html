@@ -1,0 +1,120 @@
+
+
+<!DOCTYPE html>
+
+<html lang="ko"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="~{layout/default.html}" >
+
+<th:block layout:fragment="content">
+    <link href="css/layout.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+
+    <div style="width:60%;" class="container">
+        <div class="title">
+            <h2>회원가입</h2>
+        </div>
+
+
+        <div class="stepBox regBox">
+            <ol class="stepCol3">
+                <li class="on"><span><strong style="margin-left:50px;">STEP. 01</strong><em>이용약관 동의</em></span></li>
+                <li class=""><span><strong>STEP. 02</strong><em>본인인증</em></span></li>
+                <li class=""><span><strong>STEP. 03</strong><em>정보 입력</em></span></li>
+            </ol>
+        </div>
+
+
+
+        <table style="width:100%; text-align : center;">
+
+
+            <tr>
+                <td style="text-align: center;">
+
+                    <!--이용약관 테이블 시작-->
+                    <table style="width : 100%;">
+                        <tr>
+                            <td>
+                                <div style="margin-top:20px; margin-bottom: 10px;">
+                                    <font style="color : #f67001; font-size : medium;" >01</font> <font style="font-size : medium;">이용약관</font>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;width:850px;">
+               <textarea style="width:850px;" readonly name="tos" rows=15 cols=100>
+                    제1조(목적)
+                     이 약관은 oooo 회사(전자상거래 사업자)가 운영하는 oooo 사이버 몰(이하 “몰”이라 한다)에서 제공하는 인터넷 관련
+                     서비스(이하 “서비스”라 한다)를 이용함에 있어 사이버 몰과 이용자의 권리ㆍ의무 및 책임사항을 규정함을 목적으로 합니다.
+
+                     ※「PC통신, 무선 등을 이용하는 전자상거래에 대해서도 그 성질에 반하지 않는 한 이 약관을 준용합니다」
+
+
+                </textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name = "checkBox" style="width:16px; height: 16px;" type="checkbox">이용약관에 동의합니다.<br><br><br><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div style="margin-top:10px; margin-bottom: 10px;">
+                                    <font style=" color:#f67001;font-size : medium;" >02</font> <font style=" font-size : medium;">개인정보 수집 및 이용에 대한 안내</font>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center; width:850px;">
+               <textarea style="width:850px;" readonly name="tos" rows=15 cols=100>
+                    수집하는 개인정보의 항목
+                    회사는 회원가입, 상담, 서비스 신청 및 제공 등을 위해 아래와 같은 개인정보를 수집하고 있습니다.
+                    - 이름, 이메일, 주소, 연락처, 핸드폰 번호, 아이디, 비밀번호, 닉네임, 팩스번호, 홈페이지 주소 또한 서비스 이용과정이나 사업
+                     처리 과정에서 아래와 같은 정보들이 생성되어 수집될 수 있습니다.
+                    - 서비스 이용기록, 접속 로그, 쿠키, 접속 IP 정보, 방문일시, 브라우저종류 및 os, 검색어, 결제기록, 이용정지 기록, 상담기록
+
+                </textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name = "checkBox" style="width:16px; height: 16px;" type="checkbox">개인정보 수집 및 이용에 대한 안내에 동의합니다.
+                            </td>
+                        </tr>
+                    </table>
+
+                </td>
+            </tr>
+        </table>
+
+
+
+
+    <div class="reg-buttons">
+        <a class="btnL btnBlue" id="btn-confirm" onclick="submit();">다음</a>
+        <a href="/main" class="btnL btnBlack" id="btn-cancel" >취소</a>
+    </div>
+    </div>
+    <script>
+        function submit() {
+
+            const checked = $("input[name='checkBox']:checked").length;
+            if(checked === 0) {
+                alert("이용 약관에 모두 동의 후 가입 가능합니다.");
+                return false;
+            }else if(checked ===1) {
+                alert("이용 약관에 모두 동의 후 가입 가능합니다.");
+                return false;
+            }
+            else {
+                location.href= "register_authentication";
+            }
+        }
+
+    </script>
+</th:block>
+
